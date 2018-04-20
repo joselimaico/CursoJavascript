@@ -45,5 +45,34 @@ class Usuario {
 }
 
 let usuario: Usuario = new Usuario('Jose',22,'1722466263')
+let usuarioOtro = {
+    mNonmbre: 'Jose',
+    mEdad: 25
+}
 
-console.log(usuario)
+console.log(usuario.imprimirEnConsola())
+console.log(usuarioOtro)
+
+
+interface UsuarioDos{
+    mNombre: String
+    mEdad: Number
+    mCedula: String
+    imprimirEnConsola(nombre:String):void
+    usuario:Usuario
+
+}
+
+
+let usuarioCuatro: UsuarioDos
+
+
+class UsuarioTres{
+
+    constructor(public mNombre:String,
+                private mEdad: Number,
+                protected mCedula:String){
+
+    }
+
+}
