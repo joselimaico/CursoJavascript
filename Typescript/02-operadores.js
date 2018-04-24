@@ -1,4 +1,5 @@
 var arregloNumeros = [1, 2, 3, 4, 5];
+var arregloDeudas = [78, 150.25, 92, 32.75, 25.89, 50.20, 11];
 //let srregloUsuarios: Array <UsuarioArreglo> = [
 var arregloUsuarios = [
     {
@@ -41,8 +42,22 @@ var resultadoForEach = arregloNumeros.forEach(function (valor, indice, arreglo) 
 var resultadoDeLaSuma = arregloNumeros.reduce(function (totalAcumulado, valorArreglo) {
     return totalAcumulado - valorArreglo;
 }, 20);
+function calcularDeudaUsuario(edad) {
+    return arregloDeudas.reduce(function (totalAcumulado, deuda) {
+        return totalAcumulado + (((edad) / 100) * deuda);
+    }, 0);
+}
+var usuariosConCincoAniosMenos = arregloUsuarios.map(function (usuario) {
+    usuario.edad = usuario.edad - 5;
+    usuario.deuda = calcularDeudaUsuario(usuario.edad);
+    return usuario;
+}).filter(function (usuario) {
+    //true se devuelve, false no se devuelve
+    return (usuario.deuda < 100);
+});
 var resultadoDeLasEdades = arregloUsuarios.reduce(function (totalAcumulado, valorArreglo) {
     return totalAcumulado + valorArreglo.edad;
 }, 20);
 console.log('Resultado de la suma ', resultadoDeLaSuma);
 console.log('Resultado de la suma ', resultadoDeLasEdades);
+console.log('Usuarios con cinco anios menos', usuariosConCincoAniosMenos);

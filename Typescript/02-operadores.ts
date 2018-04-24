@@ -1,4 +1,6 @@
 let arregloNumeros = [1, 2, 3, 4, 5]
+
+let arregloDeudas = [78,150.25,92,32.75,25.89,50.20,11]
 //let srregloUsuarios: Array <UsuarioArreglo> = [
 let arregloUsuarios: UsuarioArreglo[] = [
     {
@@ -56,6 +58,32 @@ let resultadoDeLaSuma = arregloNumeros.reduce(
     20
 )
 
+function calcularDeudaUsuario(edad: number){
+    return arregloDeudas.reduce(
+        (totalAcumulado,deuda:number)=>{
+            return totalAcumulado +( ((edad)/100)*deuda)
+        },
+        0
+    )
+
+}
+
+let usuariosConCincoAniosMenos = arregloUsuarios.map(
+    (usuario:UsuarioArreglo)=>{
+        usuario.edad = usuario.edad-5
+        usuario.deuda=calcularDeudaUsuario(usuario.edad)
+        return usuario
+    },
+
+).filter(
+    (usuario:UsuarioArreglo)=>{
+        //true se devuelve, false no se devuelve
+        return (usuario.deuda < 100)
+    }
+)
+
+
+
 let resultadoDeLasEdades = arregloUsuarios.reduce(
     (totalAcumulado, valorArreglo:UsuarioArreglo) => {
 
@@ -68,8 +96,12 @@ let resultadoDeLasEdades = arregloUsuarios.reduce(
 interface UsuarioArreglo {
     nombre: string
     edad: number
+    deuda?:number
 }
 
 
 console.log('Resultado de la suma ', resultadoDeLaSuma)
 console.log('Resultado de la suma ', resultadoDeLasEdades)
+
+console.log('Usuarios con cinco anios menos', usuariosConCincoAniosMenos)
+
