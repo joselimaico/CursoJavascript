@@ -57,9 +57,9 @@ let resultadoDeLaSuma = arregloNumeros.reduce(
 )
 
 let resultadoDeLasEdades = arregloUsuarios.reduce(
-    (totalAcumulado, valorArreglo) => {
+    (totalAcumulado, valorArreglo:UsuarioArreglo) => {
 
-        return totalAcumulado - valorArreglo
+        return totalAcumulado + valorArreglo.edad
     }
     ,
     20
@@ -72,3 +72,4 @@ interface UsuarioArreglo {
 
 
 console.log('Resultado de la suma ', resultadoDeLaSuma)
+console.log('Resultado de la suma ', resultadoDeLasEdades)

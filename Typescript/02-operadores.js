@@ -42,6 +42,7 @@ var resultadoDeLaSuma = arregloNumeros.reduce(function (totalAcumulado, valorArr
     return totalAcumulado - valorArreglo;
 }, 20);
 var resultadoDeLasEdades = arregloUsuarios.reduce(function (totalAcumulado, valorArreglo) {
-    return totalAcumulado - valorArreglo;
+    return totalAcumulado + valorArreglo.edad;
 }, 20);
 console.log('Resultado de la suma ', resultadoDeLaSuma);
+console.log('Resultado de la suma ', resultadoDeLasEdades);
