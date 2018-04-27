@@ -81,6 +81,16 @@ let usuariosConCincoAniosMenos = arregloUsuarios.map(
         return (usuario.deuda < 100)
     }
 )
+    /*.every(
+        (usuario: UsuarioArreglo) =>{
+            return (usuario.edad > 80)
+        }
+    )*/
+    .some( //OR
+        (usuario: UsuarioArreglo) =>{
+            return (usuario.edad <= 18)
+        }
+    )
 
 
 

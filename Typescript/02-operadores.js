@@ -54,6 +54,10 @@ var usuariosConCincoAniosMenos = arregloUsuarios.map(function (usuario) {
 }).filter(function (usuario) {
     //true se devuelve, false no se devuelve
     return (usuario.deuda < 100);
+})
+    .some(//OR
+function (usuario) {
+    return (usuario.edad <= 18);
 });
 var resultadoDeLasEdades = arregloUsuarios.reduce(function (totalAcumulado, valorArreglo) {
     return totalAcumulado + valorArreglo.edad;
